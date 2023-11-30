@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logoIcon.png">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: monter;
+            src: url(font/Montserrat-VariableFont_wght.ttf);
+        }
+
+        body {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+
+        }
+
+        .conteudo {
+
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+
+        #idiomas {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bandeira {
+            width: 8vh;
+            height: 5vh;
+            margin-left: 2vh;
+        }
+
+        button {
+            margin-bottom: 10px;
+            /* Espaçamento entre os botões */
+        }
+
+        .container {
+            font-family: monter;
+            width: 100vh;
+            height: 50vh;
+            background-color: pink;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30vh;
+        }
+
+        button {
+            background-color: rgba(240, 248, 255, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+
+        }
+
+        .menu {
+            cursor: pointer;
+        }
+li{
+    color: rgba(240, 248, 255, 0);
+}
+
+.imagem{
+    width: 6vh;
+    height: 5vh;
+}
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>PASSATATEMPO EDUCATIVO</h1>
+        <div class="conteudo" id="paragrafo1"></div>
+        <div class="conteudo" id="paragrafo2"></div>
+        <div class="conteudo" id="paragrafo3"></div>
+        <div class="conteudo" id="paragrafo4"></div>
+        <div class="conteudo" id="paragrafo5"></div>
+    </div>
+
+
+
+
+    <div class="menu">
+        <ul>
+            <li id="menu"><img class="imagem" src="img/menu_4204600.png" alt=""></li>
+        </ul>
+    </div>
+    
+    <div class="buttons" id="buttons-container" style="display: none;">
+        <div id="idiomas">
+            <button onclick="Escolher('en')"><img class="bandeira" src="img/usa_6055303.png" alt=""></button>
+            <button onclick="Escolher('pt')"><img class="bandeira" src="img/brazil-flag_3909370.png" alt=""></button>
+            <button onclick="Escolher('es')"><img class="bandeira" src="img/spain_2130021.png" alt=""></button>
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        function Escolher(idiomas) {
+
+            fetch(`texto.${idiomas}.json`)
+                .then(resposta => resposta.json())
+                .then(texto => {
+                    document.getElementById('paragrafo1').innerHTML = texto.paragrafo1;
+                    document.getElementById('paragrafo2').innerHTML = texto.paragrafo2;
+                    document.getElementById('paragrafo3').innerHTML = texto.paragrafo3;
+                    document.getElementById('paragrafo4').innerHTML = texto.paragrafo4;
+                    document.getElementById('paragrafo5').innerHTML = texto.paragrafo5;
+
+                })
+                .catch(error => console.error('erro buscando textos:', error));
+        }
+    </script>
+
+    <script>
+        // Selecionando elementos do menu e dos botões
+const menu = document.getElementById('menu');
+const buttonsContainer = document.getElementById('buttons-container');
+
+// Adicionando evento de clique ao menu para mostrar os botões
+menu.addEventListener('click', () => {
+    if (buttonsContainer.style.display === 'none') {
+        buttonsContainer.style.display = 'block';
+    } else {
+        buttonsContainer.style.display = 'none';
+    }
+});
+
+    </script>
+
+</body>
+
+</html>
