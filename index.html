@@ -12,7 +12,7 @@
             src: url(font/Montserrat-VariableFont_wght.ttf);
         }
 
-        body {
+        main {
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -30,18 +30,23 @@
 
         #idiomas {
             display: flex;
-            flex-direction: column;
+            margin-left: 160vh;
+            margin-top: -9vh;
+            position: fixed;
         }
 
         .bandeira {
-            width: 8vh;
-            height: 5vh;
+            width: 6vh;
+            height: 4vh;
             margin-left: 2vh;
         }
 
         button {
             margin-bottom: 10px;
-            /* Espaçamento entre os botões */
+        }
+
+        h1 {
+            color: rgba(251, 38, 115, 1);
         }
 
         .container {
@@ -52,7 +57,15 @@
             text-align: center;
             justify-content: center;
             align-items: center;
-            margin-top: 30vh;
+            margin-top: 10vh;
+        }
+
+        .linha {
+            background-color: rgba(255, 228, 133, 0.74);
+            width: 1480px;
+            height: 3px;
+            margin-top: 5vh;
+          
         }
 
         button {
@@ -63,48 +76,90 @@
 
         .menu {
             cursor: pointer;
+            margin-top: 5vh;
+            
         }
-li{
-    color: rgba(240, 248, 255, 0);
-}
 
-.imagem{
-    width: 6vh;
-    height: 5vh;
-}
-        
+        li {
+            color: rgba(240, 248, 255, 0);
+        }
+
+        .imagem {
+            width: 10vh;
+            height: 8vh;
+            color: white;
+        }
+
+        .tudo-header {
+            display: flex;
+            justify-content: space-around;
+           
+        }
+        .logo{
+            width: 18vh;
+            height: 12vh;
+            margin-top: 5vh;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>PASSATATEMPO EDUCATIVO</h1>
-        <div class="conteudo" id="paragrafo1"></div>
-        <div class="conteudo" id="paragrafo2"></div>
-        <div class="conteudo" id="paragrafo3"></div>
-        <div class="conteudo" id="paragrafo4"></div>
-        <div class="conteudo" id="paragrafo5"></div>
-    </div>
+    <header>
+        <div class="tudo-header">
+            <img class="logo" src="img/logo1.png" alt="">
 
-
-
-
-    <div class="menu">
-        <ul>
-            <li id="menu"><img class="imagem" src="img/menu_4204600.png" alt=""></li>
-        </ul>
-    </div>
-    
-    <div class="buttons" id="buttons-container" style="display: none;">
-        <div id="idiomas">
-            <button onclick="Escolher('en')"><img class="bandeira" src="img/usa_6055303.png" alt=""></button>
-            <button onclick="Escolher('pt')"><img class="bandeira" src="img/brazil-flag_3909370.png" alt=""></button>
-            <button onclick="Escolher('es')"><img class="bandeira" src="img/spain_2130021.png" alt=""></button>
+            <div class="menu">
+                <ul>
+                    <li id="menu"><img class="imagem" src="img/menu-bar_6927070-removebg-preview.png" alt=""></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    
+        <div class="buttons" id="buttons-container" style="display: none;">
+            <div id="idiomas">
+                <button onclick="Escolher('en')"><img class="bandeira" src="img/united-states_4855884.png" alt=""></button>
+                <button onclick="Escolher('pt')"><img class="bandeira" src="img/brazil-flag_3909370.png"
+                        alt=""></button>
+                <button onclick="Escolher('es')"><img class="bandeira" src="img/spain_2130021.png" alt=""></button>
+            </div>
+        </div>
+        <div class="linha"></div>
+    </header>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main>
+
+        <div class="container">
+            <h1>PASSATATEMPO EDUCATIVO</h1>
+            <div class="conteudo" id="paragrafo1"></div>
+            <div class="conteudo" id="paragrafo2"></div>
+            <div class="conteudo" id="paragrafo3"></div>
+            <div class="conteudo" id="paragrafo4"></div>
+            <div class="conteudo" id="paragrafo5"></div>
+        </div>
+
+
+
+
+
+
+    </main>
 
 
     <script>
@@ -124,22 +179,22 @@ li{
         }
     </script>
 
+    
     <script>
         // Selecionando elementos do menu e dos botões
-const menu = document.getElementById('menu');
-const buttonsContainer = document.getElementById('buttons-container');
+        const menu = document.getElementById('menu');
+        const buttonsContainer = document.getElementById('buttons-container');
 
-// Adicionando evento de clique ao menu para mostrar os botões
-menu.addEventListener('click', () => {
-    if (buttonsContainer.style.display === 'none') {
-        buttonsContainer.style.display = 'block';
-    } else {
-        buttonsContainer.style.display = 'none';
-    }
-});
+        // Adicionando evento de clique ao menu para mostrar os botões horizontalmente
+        menu.addEventListener('click', () => {
+            if (buttonsContainer.style.display === 'none') {
+                buttonsContainer.style.display = 'block';
+            } else {
+                buttonsContainer.style.display = 'none';
+            }
+        });
 
     </script>
-
 </body>
 
 </html>
